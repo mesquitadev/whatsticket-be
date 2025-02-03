@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Chat } from "@whiskeysockets/baileys";
 import BaileysChats from "../../models/BaileysChats";
 

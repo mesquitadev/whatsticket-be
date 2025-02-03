@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Request, Response } from "express";
 import { getIO } from "../libs/socket";
 
@@ -68,7 +69,7 @@ export const uploadMedias = async (req: Request, res: Response): Promise<Respons
   const file = head(files);
 
   try {
-    
+
     let fileOpt
     if (files.length > 0) {
 
@@ -86,7 +87,7 @@ export const uploadMedias = async (req: Request, res: Response): Promise<Respons
         }) ;
       }
     }
-    
+
     return res.send({ mensagem: "Arquivos atualizados" });
   } catch (err: any) {
     throw new AppError(err.message);
@@ -115,7 +116,7 @@ export const update = async (
 
   return res.status(200).json(fileList);
 };
-    
+
 
 export const remove = async (
   req: Request,

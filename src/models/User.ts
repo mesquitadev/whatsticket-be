@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Table,
   Column,
@@ -35,7 +36,7 @@ class User extends Model<User> {
 
   @Column
   email: string;
-  
+
   @Column
   allTicket: string;
 

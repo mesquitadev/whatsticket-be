@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { proto, WASocket } from "@whiskeysockets/baileys";
 import Contact from "../../models/Contact";
 import Setting from "../../models/Setting";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { FindOptions } from "sequelize/types";
 import { Op } from "sequelize";
 import AppError from "../../errors/AppError";

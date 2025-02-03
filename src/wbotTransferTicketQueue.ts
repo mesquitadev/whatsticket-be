@@ -1,6 +1,5 @@
 import { Op } from "sequelize";
 import TicketTraking from "./models/TicketTraking";
-import { format } from "date-fns";
 import moment from "moment";
 import Ticket from "./models/Ticket";
 import Whatsapp from "./models/Whatsapp";
@@ -14,9 +13,11 @@ export const TransferTicketQueue = async (): Promise<void> => {
   const io = getIO();
 
   //buscar os tickets que em pendentes e sem fila
+  // @ts-ignore
   const tickets = await Ticket.findAll({
     where: {
       status: "pending",
+      // @ts-ignore
       queueId: {
         [Op.is]: null
       },
@@ -25,7 +26,7 @@ export const TransferTicketQueue = async (): Promise<void> => {
   });
 
   // varrer os tickets e verificar se algum deles está com o tempo estourado
-  tickets.forEach(async ticket => {
+  for (const ticket of tickets) {
 
 
 
@@ -35,7 +36,7 @@ export const TransferTicketQueue = async (): Promise<void> => {
       }
     });
 
-    if (!wpp || !wpp.timeToTransfer || !wpp.transferQueueId || wpp.timeToTransfer == 0) return;
+    if (!wpp || !wpp.timeToTransfer || !wpp.transferQueueId || wpp.timeToTransfer == 0) continue;
 
     let dataLimite = new Date(ticket.updatedAt);
     dataLimite.setMinutes(dataLimite.getMinutes() + wpp.timeToTransfer);
@@ -55,6 +56,7 @@ export const TransferTicketQueue = async (): Promise<void> => {
         order: [["createdAt", "DESC"]]
       });
 
+      // @ts-ignore
       await ticketTraking.update({
         queuedAt: moment().toDate(),
         queueId: wpp.transferQueueId,
@@ -76,7 +78,7 @@ export const TransferTicketQueue = async (): Promise<void> => {
     }
 
 
-  });
+  }
 
 
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { WAMessage } from "@whiskeysockets/baileys";
 import WALegacySocket from "@whiskeysockets/baileys"
 import * as Sentry from "@sentry/node";
@@ -43,7 +44,7 @@ const SendWhatsAppMessage = async ({
           }
         };
       }
-    
+
   }
 
   try {

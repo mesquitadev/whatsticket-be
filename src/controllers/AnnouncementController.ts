@@ -36,6 +36,14 @@ type FindParams = {
   companyId: string;
 };
 
+interface RequestWithUser extends Request {
+  user: {
+    id: string;
+    profile: string;
+    companyId: number;
+  };
+}
+
 export const index = async (req: Request, res: Response): Promise<Response> => {
   const { searchParam, pageNumber } = req.query as IndexQuery;
 
@@ -48,11 +56,12 @@ export const index = async (req: Request, res: Response): Promise<Response> => {
 };
 
 export const store = async (req: Request, res: Response): Promise<Response> => {
-  const { companyId } = req.user;
+  const { companyId } = (req as RequestWithUser).user;
   const data = req.body as StoreData;
 
   const schema = Yup.object().shape({
-    title: Yup.string().required()
+    title: Yup.string().required(),
+    status: Yup.string().required()
   });
 
   try {
@@ -77,6 +86,9 @@ export const store = async (req: Request, res: Response): Promise<Response> => {
 
 export const show = async (req: Request, res: Response): Promise<Response> => {
   const { id } = req.params;
+  if (isNaN(Number(id))) {
+    throw new AppError("Invalid ID");
+  }
 
   const record = await ShowService(id);
 
@@ -90,7 +102,8 @@ export const update = async (
   const data = req.body as StoreData;
 
   const schema = Yup.object().shape({
-    title: Yup.string().required()
+    title: Yup.string().required(),
+    status: Yup.string().required()
   });
 
   try {
@@ -100,6 +113,9 @@ export const update = async (
   }
 
   const { id } = req.params;
+  if (isNaN(Number(id))) {
+    throw new AppError("Invalid ID");
+  }
 
   const record = await UpdateService({
     ...data,
@@ -120,7 +136,10 @@ export const remove = async (
   res: Response
 ): Promise<Response> => {
   const { id } = req.params;
-  const { companyId } = req.user;
+  if (isNaN(Number(id))) {
+    throw new AppError("Invalid ID");
+  }
+  const { companyId } = (req as RequestWithUser).user;
 
   await DeleteService(id);
 
@@ -148,15 +167,22 @@ export const mediaUpload = async (
   res: Response
 ): Promise<Response> => {
   const { id } = req.params;
+  if (isNaN(Number(id))) {
+    throw new AppError("Invalid ID");
+  }
   const files = req.files as Express.Multer.File[];
   const file = head(files);
 
   try {
     const announcement = await Announcement.findByPk(id);
 
+    if (!announcement) {
+      throw new AppError("Announcement not found");
+    }
+
     await announcement.update({
-      mediaPath: file.filename,
-      mediaName: file.originalname
+      mediaPath: file?.filename,
+      mediaName: file?.originalname
     });
     await announcement.reload();
 
@@ -166,7 +192,7 @@ export const mediaUpload = async (
       record: announcement
     });
 
-    return res.send({ mensagem: "Mensagem enviada" });
+    return res.send({ message: "Message sent" });
   } catch (err: any) {
     throw new AppError(err.message);
   }
@@ -177,9 +203,17 @@ export const deleteMedia = async (
   res: Response
 ): Promise<Response> => {
   const { id } = req.params;
+  if (isNaN(Number(id))) {
+    throw new AppError("Invalid ID");
+  }
 
   try {
     const announcement = await Announcement.findByPk(id);
+
+    if (!announcement) {
+      throw new AppError("Announcement not found");
+    }
+
     const filePath = path.resolve("public", announcement.mediaPath);
     const fileExists = fs.existsSync(filePath);
     if (fileExists) {
@@ -198,7 +232,7 @@ export const deleteMedia = async (
       record: announcement
     });
 
-    return res.send({ mensagem: "Arquivo excluído" });
+    return res.send({ message: "File deleted" });
   } catch (err: any) {
     throw new AppError(err.message);
   }

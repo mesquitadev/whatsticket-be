@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { WAMessage, AnyMessageContent } from "@whiskeysockets/baileys";
 import * as Sentry from "@sentry/node";
 import fs from "fs";

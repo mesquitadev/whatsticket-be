@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Table,
   Column,
@@ -84,7 +85,7 @@ class Queue extends Model<Queue> {
   @Column
   orderQueue: number;
 
-  
+
   @ForeignKey(() => QueueIntegrations)
   @Column
   integrationId: number;

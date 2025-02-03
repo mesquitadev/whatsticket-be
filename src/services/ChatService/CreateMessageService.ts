@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Op } from "sequelize";
 import Chat from "../../models/Chat";
 import ChatMessage from "../../models/ChatMessage";

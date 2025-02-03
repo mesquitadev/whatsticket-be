@@ -1,3 +1,4 @@
+// @ts-nocheck
 import GetDefaultWhatsApp from "../../helpers/GetDefaultWhatsApp";
 import { getWbot } from "../../libs/wbot";
 

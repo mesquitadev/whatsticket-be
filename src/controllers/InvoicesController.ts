@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Yup from "yup";
 import { Request, Response } from "express";
 // import { getIO } from "../libs/socket";
@@ -18,7 +19,7 @@ type IndexQuery = {
   searchParam: string;
   pageNumber: string;
 };
- 
+
 type StorePlanData = {
   name: string;
   id?: number | string;

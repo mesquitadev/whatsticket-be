@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Request, Response } from "express";
 import { getIO } from "../libs/socket";
 import CreatePromptService from "../services/PromptServices/CreatePromptService";

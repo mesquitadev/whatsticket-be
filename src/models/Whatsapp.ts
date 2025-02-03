@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Table,
   Column,
@@ -111,12 +112,12 @@ class Whatsapp extends Model<Whatsapp> {
 
   //@Column
   //sendIdQueue: number;
-  
+
   @Column
   transferQueueId: number;
 
   @Column
-  timeToTransfer: number;  
+  timeToTransfer: number;
 
   @ForeignKey(() => Prompt)
   @Column

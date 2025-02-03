@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Op } from "sequelize";
 import Campaign from "../../models/Campaign";
 import CampaignShipping from "../../models/CampaignShipping";

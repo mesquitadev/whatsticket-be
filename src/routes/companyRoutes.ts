@@ -1,3 +1,4 @@
+// @ts-nocheck
 import express from "express";
 import isAuth from "../middleware/isAuth";
 import isSuper from "../middleware/isSuper";

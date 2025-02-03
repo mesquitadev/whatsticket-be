@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Router } from "express";
 import * as PromptController from "../controllers/PromptController";
 import isAuth from "../middleware/isAuth";

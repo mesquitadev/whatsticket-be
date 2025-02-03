@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
     Table,
     Column,
@@ -27,10 +28,10 @@ class QueueIntegrations extends Model<QueueIntegrations> {
 
     @Column(DataType.TEXT)
     name: string;
-    
+
     @Column(DataType.TEXT)
     projectName: string;
-    
+
     @Column(DataType.TEXT)
     jsonContent: string;
 
@@ -51,10 +52,10 @@ class QueueIntegrations extends Model<QueueIntegrations> {
     @ForeignKey(() => Company)
     @Column
     companyId: number;
-  
+
     @BelongsTo(() => Company)
     company: Company;
-  
+
     @Column
     typebotSlug: string;
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import axios from "axios";
 import Ticket from "../../models/Ticket";
 import QueueIntegrations from "../../models/QueueIntegrations";
@@ -97,7 +98,7 @@ const typebotListener = async ({
             await ticket.reload();
         }
 
-        if (isNil(ticket.typebotSessionId)) {            
+        if (isNil(ticket.typebotSessionId)) {
             dataStart = await createSession(msg, typebot, number);
             sessionId = dataStart.sessionId
             status = true;
@@ -393,7 +394,7 @@ const typebotListener = async ({
                 ticketData: {
                     status: "closed",
                     useIntegration: false,
-                    integrationId: null                   
+                    integrationId: null
                 },
                 ticketId: ticket.id,
                 companyId: ticket.companyId

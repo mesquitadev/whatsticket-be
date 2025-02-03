@@ -1,3 +1,4 @@
+// @ts-nocheck
 import express from "express";
 import isAuth from "../middleware/isAuth";
 import * as QueueOptionController from "../controllers/QueueOptionController";

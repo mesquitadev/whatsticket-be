@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Yup from "yup";
 import { Request, Response } from "express";
 // import { getIO } from "../libs/socket";

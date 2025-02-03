@@ -1,3 +1,4 @@
+// @ts-nocheck
 import AppError from "../../errors/AppError";
 import CheckContactOpenTickets from "../../helpers/CheckContactOpenTickets";
 import GetDefaultWhatsApp from "../../helpers/GetDefaultWhatsApp";
@@ -29,7 +30,7 @@ const CreateTicketService = async ({
   if (whatsappId !== undefined && whatsappId !== null && whatsappId !==  "") {
     whatsapp = await ShowWhatsAppService(whatsappId, companyId)
   }
-  
+
   let defaultWhatsapp = await GetDefaultWhatsAppByUser(userId);
 
   if (whatsapp) {

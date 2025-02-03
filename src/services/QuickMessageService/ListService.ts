@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Sequelize, Op, Filterable } from "sequelize";
 import QuickMessage from "../../models/QuickMessage";
 

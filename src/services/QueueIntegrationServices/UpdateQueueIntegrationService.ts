@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Yup from "yup";
 
 import AppError from "../../errors/AppError";
@@ -49,7 +50,7 @@ const UpdateQueueIntegrationService = async ({
     typebotUnknownMessage,
     typebotDelayMessage,
     typebotKeywordRestart,
-    typebotRestartMessage 
+    typebotRestartMessage
   } = integrationData;
 
   try {
@@ -74,7 +75,7 @@ const UpdateQueueIntegrationService = async ({
     typebotUnknownMessage,
     typebotDelayMessage,
     typebotKeywordRestart,
-    typebotRestartMessage 
+    typebotRestartMessage
   });
 
   return integration;

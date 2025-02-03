@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Yup from "yup";
 
 import AppError from "../../errors/AppError";

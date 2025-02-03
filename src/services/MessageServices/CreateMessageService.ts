@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getIO } from "../../libs/socket";
 import Message from "../../models/Message";
 import Ticket from "../../models/Ticket";

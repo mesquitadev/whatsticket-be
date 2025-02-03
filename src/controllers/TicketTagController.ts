@@ -4,7 +4,9 @@ import TicketTag from '../models/TicketTag';
 import Tag from '../models/Tag'
 
 export const store = async (req: Request, res: Response): Promise<Response> => {
-  const { ticketId, tagId } = req.params;
+  const { ticketId: ticketIdStr, tagId: tagIdStr } = req.params;
+  const ticketId = Number(ticketIdStr);
+  const tagId = Number(tagIdStr);
 
   try {
     const ticketTag = await TicketTag.create({ ticketId, tagId });

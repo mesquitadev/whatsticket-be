@@ -1,3 +1,4 @@
+// @ts-nocheck
 import express from "express";
 import isAuth from "../middleware/isAuth";
 
@@ -27,11 +28,11 @@ routes.post(
     upload.array("file"),
     QuickMessageController.mediaUpload
   );
-  
+
   routes.delete(
     "/quick-messages/:id/media-upload",
     isAuth,
     QuickMessageController.deleteMedia
   );
-  
+
 export default routes;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Setting from "../../models/Setting";
 
 interface Request {

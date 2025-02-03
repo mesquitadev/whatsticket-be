@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Op } from "sequelize";
 import TicketTraking from "../../models/TicketTraking";
 

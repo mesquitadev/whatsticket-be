@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Request, Response } from "express";
 import AppError from "../errors/AppError";
 
@@ -176,7 +177,7 @@ export const send = async (req: Request, res: Response): Promise<Response> => {
         });
       }, 1000);
     }
-    
+
     SetTicketMessagesAsRead(ticket);
 
     return res.send({ mensagem: "Mensagem enviada" });

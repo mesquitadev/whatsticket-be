@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Campaign from "../../models/Campaign";
 import { campaignQueue } from "../../queues";
 

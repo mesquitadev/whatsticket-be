@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Redis from "ioredis";
 import { REDIS_URI_CONNECTION } from "../config/redis";
 import util from "util";

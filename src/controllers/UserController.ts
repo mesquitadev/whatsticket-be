@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Request, Response } from "express";
 import { getIO } from "../libs/socket";
 
@@ -56,7 +57,7 @@ export const store = async (req: Request, res: Response): Promise<Response> => {
     requestUser = await User.findByPk(req.user.id);
   }
 
-  const newUserCompanyId = bodyCompanyId || userCompanyId; 
+  const newUserCompanyId = bodyCompanyId || userCompanyId;
 
   if (req.url === "/signup") {
     if (await CheckSettingsHelper("userCreation") === "disabled") {

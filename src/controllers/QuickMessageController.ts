@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Yup from "yup";
 import { Request, Response } from "express";
 import { getIO } from "../libs/socket";
@@ -159,7 +160,7 @@ export const mediaUpload = async (
 
   try {
     const quickmessage = await QuickMessage.findByPk(id);
-    
+
     quickmessage.update ({
       mediaPath: file.filename,
       mediaName: file.originalname

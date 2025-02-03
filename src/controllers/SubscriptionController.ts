@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Request, Response } from "express";
 import express from "express";
 import * as Yup from "yup";

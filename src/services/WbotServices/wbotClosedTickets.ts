@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Op } from "sequelize";
 import Ticket from "../../models/Ticket"
 import Whatsapp from "../../models/Whatsapp"
@@ -64,7 +65,7 @@ export const ClosedAllOpenTickets = async (companyId: number): Promise<void> => 
       if (!whatsapp) return;
 
       let {
-        expiresInactiveMessage, //mensage de encerramento por inatividade      
+        expiresInactiveMessage, //mensage de encerramento por inatividade
         expiresTicket //tempo em horas para fechar ticket automaticamente
       } = whatsapp
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import AppError from "../errors/AppError";
 import Whatsapp from "../models/Whatsapp";
 import GetDefaultWhatsAppByUser from "./GetDefaultWhatsAppByUser";

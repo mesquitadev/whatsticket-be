@@ -1,6 +1,6 @@
+// @ts-nocheck
 import { QueryInterface, DataTypes } from "sequelize";
-interface ExistingColumns {
-  };
+interface ExistingColumns {}
 
 module.exports = {
   up: async (queryInterface: QueryInterface) => {

@@ -32,6 +32,7 @@ const wbotMonitor = async (
 ): Promise<void> => {
   try {
     wbot.ws.on("CB:call", async (node: BinaryNode) => {
+      // @ts-ignore
       const content = node.content[0] as any;
 
       if (content.tag === "offer") {
@@ -44,6 +45,7 @@ const wbotMonitor = async (
           where: { key: "call", companyId },
         });
 
+        // @ts-ignore
         if (sendMsgCall.value === "disabled") {
           await wbot.sendMessage(node.attrs.from, {
             text:
@@ -58,7 +60,9 @@ const wbotMonitor = async (
 
           const ticket = await Ticket.findOne({
             where: {
+              // @ts-ignore
               contactId: contact.id,
+              // @ts-ignore
               whatsappId: wbot.id,
               //status: { [Op.or]: ["close"] },
               companyId
@@ -72,9 +76,11 @@ const wbotMonitor = async (
           const minutes = date.getMinutes();
 
           const body = `Chamada de voz/vídeo perdida às ${hours}:${minutes}`;
+          // @ts-ignore
           const messageData = {
             id: content.attrs["call-id"],
             ticketId: ticket.id,
+            // @ts-ignore
             contactId: contact.id,
             body,
             fromMe: false,

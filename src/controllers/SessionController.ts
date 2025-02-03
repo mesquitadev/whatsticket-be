@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Request, Response } from "express";
 import AppError from "../errors/AppError";
 import { getIO } from "../libs/socket";

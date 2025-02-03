@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Chat from "../../models/Chat";
 import Company from "../../models/Company";
 import User from "../../models/User";

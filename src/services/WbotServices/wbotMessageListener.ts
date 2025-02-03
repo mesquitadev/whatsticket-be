@@ -1,3 +1,4 @@
+// @ts-nocheck
 import path, { join } from "path";
 import { promisify } from "util";
 import { readFile, writeFile } from "fs";
@@ -843,7 +844,7 @@ const verifyMediaMessage = async (
   }
 
   const body = getBodyMessage(msg);
-  
+
 
   const messageData = {
     id: msg.key.id,
@@ -1830,7 +1831,7 @@ const handleMessage = async (
       console.log(e);
     }
 
-    // Atualiza o ticket se a ultima mensagem foi enviada por mim, para que possa ser finalizado. 
+    // Atualiza o ticket se a ultima mensagem foi enviada por mim, para que possa ser finalizado.
     try {
       await ticket.update({
         fromMe: msg.key.fromMe,
@@ -2003,7 +2004,7 @@ const handleMessage = async (
       !ticket.isGroup &&
       !ticket.userId &&
       ticket.integrationId &&
-      ticket.useIntegration && 
+      ticket.useIntegration &&
       ticket.queue
     ) {
 

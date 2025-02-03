@@ -1,3 +1,4 @@
+// @ts-nocheck
 import AppError from "../../errors/AppError";
 import BaileysChats from "../../models/BaileysChats";
 

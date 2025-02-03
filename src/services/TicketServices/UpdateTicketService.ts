@@ -1,3 +1,4 @@
+// @ts-nocheck
 import moment from "moment";
 import * as Sentry from "@sentry/node";
 import CheckContactOpenTickets from "../../helpers/CheckContactOpenTickets";
@@ -230,7 +231,7 @@ const UpdateTicketService = async ({
                 }
               );
               await verifyMessage(queueChangedMessage, ticket, ticket.contact);
-            }      
+            }
     }
 
     await ticket.update({

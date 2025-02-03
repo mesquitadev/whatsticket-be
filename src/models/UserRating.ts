@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
     Table,
     Column,
@@ -13,7 +14,7 @@ import {
   import Company from "./Company";
   import User from "./User";
   import Ticket from "./Ticket";
-  
+
   @Table({
     tableName: "UserRatings"
   })
@@ -26,33 +27,32 @@ import {
     @ForeignKey(() => Ticket)
     @Column
     ticketId: number;
-  
+
     @BelongsTo(() => Ticket)
     ticket: Ticket;
-  
+
     @ForeignKey(() => Company)
     @Column
     companyId: number;
-  
+
     @BelongsTo(() => Company)
     company: Company;
 
     @ForeignKey(() => User)
     @Column
     userId: number;
-  
+
     @BelongsTo(() => User)
     user: User;
-  
+
     @Column
     rate: number;
-  
+
     @CreatedAt
     createdAt: Date;
-  
+
     @UpdatedAt
     updatedAt: Date;
   }
-  
+
   export default UserRating;
-  

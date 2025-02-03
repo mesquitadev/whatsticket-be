@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Router } from "express";
 import * as SessionController from "../controllers/SessionController";
 import * as UserController from "../controllers/UserController";

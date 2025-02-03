@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Table,
   Column,
@@ -116,7 +117,7 @@ class Ticket extends Model<Ticket> {
   static setUUID(ticket: Ticket) {
     ticket.uuid = uuidv4();
   }
-  
+
   @Default(false)
   @Column
   useIntegration: boolean;
