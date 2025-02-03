@@ -9,6 +9,9 @@
     "rootDir": "./src",
     "resolveJsonModule": true,
     "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false,
     "paths": {
       "*": ["node_modules/*"]
     }

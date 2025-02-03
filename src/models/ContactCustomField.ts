@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   Table,
   Column,
@@ -17,26 +16,26 @@ class ContactCustomField extends Model<ContactCustomField> {
   @PrimaryKey
   @AutoIncrement
   @Column
-  id: number;
+  id!: number;
 
   @Column
-  name: string;
+  name!: string;
 
   @Column
-  value: string;
+  value!: string;
 
   @ForeignKey(() => Contact)
   @Column
-  contactId: number;
+  contactId!: number;
 
   @BelongsTo(() => Contact)
-  contact: Contact;
+  contact!: Contact;
 
   @CreatedAt
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdatedAt
-  updatedAt: Date;
+  updatedAt!: Date;
 }
 
 export default ContactCustomField;
